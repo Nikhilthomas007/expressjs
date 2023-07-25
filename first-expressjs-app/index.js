@@ -10,6 +10,10 @@ const app = express();
 //     res.send("<h1>This is a WebPage!</h1>")
 // })
 
+app.get('/', (req, res) => {
+    res.send("<h1>Home Page</h1>")
+})
+
 app.get('/fruits', (req, res) => {
     // console.log("request for fruits")
     res.send("<h1>Fruits Page</h1>")
