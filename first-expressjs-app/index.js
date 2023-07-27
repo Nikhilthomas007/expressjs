@@ -14,6 +14,12 @@ app.get('/', (req, res) => {
     res.send("<h1>Home Page</h1>")
 })
 
+app.get('/r/:subreddit/:postId', (req, res) => {
+    // console.log(req.params)
+    const { subreddit, postId } = req.params;
+    res.send(`<h1>Viewing post id: ${postId} on the ${subreddit} subreddit</h1>`)
+})
+
 app.get('/fruits', (req, res) => {
     // console.log("request for fruits")
     res.send("<h1>Fruits Page</h1>")
