@@ -33,6 +33,15 @@ app.get('/languages', (req, res) => {
     res.send("<h1>Languages Page</h1>")
 })
 
+app.get('/search', (req, res) => {
+    // console.log(req.query)
+    const { q } = req.query;
+    if(!q) {
+        res.send(`<h1>No query, no results.</h1>`)
+    }
+    res.send(`<h1>Search results for: ${q}</h1>`)
+})
+
 app.get('*', (req, res) => {
     res.send("<h1>I don't know that path</h1>")
 })
