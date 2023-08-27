@@ -9,6 +9,13 @@ app.get('/', (req, res) => {
     res.render('home.ejs')
 })
 
+app.get('/fruits', (req, res) => {
+    const fruits = [
+        'apple', 'banana', 'orange', 'grape', 'mango'
+    ]
+    res.render('fruits', { fruits })
+})
+
 app.get('/r/:subreddit', (req, res) => {
     const { subreddit } = req.params;
     res.render('subreddit', { subreddit })
