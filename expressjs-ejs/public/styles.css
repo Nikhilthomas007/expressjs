@@ -1,3 +1,23 @@
 body {
+  background-color: lime;
+  margin: 0;
+  height: 100vh;
+}
+
+.header,
+.footer {
   background-color: red;
+  margin: 0;
+  padding: 20px;
+}
+
+h1,
+p {
+  margin: 0;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
 }
