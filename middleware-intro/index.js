@@ -10,6 +10,11 @@ app.use((req, res, next) => {
     next();
 })
 
+app.use('/fruits', (req, res, next) => {
+    console.log("fruits here!");
+    next();
+})
+
 // app.use((req, res, next) => {
 //     console.log("This is my first middleware!")
 //     // next();
@@ -29,6 +34,10 @@ app.get('/', (req, res) => {
 app.get('/fruits', (req, res) => {
     console.log(`Request Date: ${req.requestTime}`)
     res.send("<h1>Fruits List</h1>")
+})
+
+app.use((req, res) => {
+    res.status(404).send("<h1>NOT FOUND!</h1>")
 })
 
 app.listen(3000, () => {
