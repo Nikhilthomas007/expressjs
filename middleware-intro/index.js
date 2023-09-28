@@ -16,6 +16,22 @@ app.use('/fruits', (req, res, next) => {
 })
 
 // app.use((req, res, next) => {
+//     const {password} = req.query;
+//     if(password === "abc123") {
+//         next();
+//     }
+//     res.send("SORRY YOU NEED A CORRECT PASSWORD TO ACCESS THIS ROUTE");
+// })
+
+const verifyPassword = (req, res, next) => {
+    const {password} = req.query;
+    if(password === "abc123") {
+        next();
+    }
+    res.send("SORRY YOU NEED A CORRECT PASSWORD TO ACCESS THIS ROUTE");
+}
+
+// app.use((req, res, next) => {
 //     console.log("This is my first middleware!")
 //     // next();
 //     return next();
@@ -34,6 +50,10 @@ app.get('/', (req, res) => {
 app.get('/fruits', (req, res) => {
     console.log(`Request Date: ${req.requestTime}`)
     res.send("<h1>Fruits List</h1>")
+})
+
+app.get('/proute', verifyPassword ,(req, res) => {
+    res.send("<h1>This is a protected route</h1>")
 })
 
 app.use((req, res) => {
